@@ -39,17 +39,21 @@
         </section>
         <section>
             <div class="contact-links mx-4 d-flex flex-wrap align-content-center justify-content-between">
-            <a class="text-decoration-none mt-1" href="#">
-                    <img class="btn btn-success p-4" src="https://img.icons8.com/material-outlined/24/ffffff/save-close.png"/>
+                <a class="text-decoration-none mt-1" href="#">
+                    <img class="btn btn-success p-4"
+                         src="https://img.icons8.com/material-outlined/24/ffffff/save-close.png"/>
                     <span class="text-dark">Save</span>
                 </a>
-                <a id="person_phone_number" class="text-decoration-none mt-1" href="#"><img  class="btn btn-success p-4" src="https://img.icons8.com/material-outlined/24/ffffff/phone.png"/>
+                <a id="person_phone_number" class="text-decoration-none mt-1" href="#"><img class="btn btn-success p-4"
+                                                                                            src="https://img.icons8.com/material-outlined/24/ffffff/phone.png"/>
                     <span class="text-dark">Mobile</span>
                 </a>
-                <a id="person_website_link" class="text-decoration-none mt-1"  href="#"><img class="btn btn-success p-4" src="https://img.icons8.com/material-outlined/24/ffffff/globe.png"/>
+                <a id="person_website_link" class="text-decoration-none mt-1" href="#"><img class="btn btn-success p-4"
+                                                                                            src="https://img.icons8.com/material-outlined/24/ffffff/globe.png"/>
                     <span class="text-dark">Blog</span>
                 </a>
-                <a id="person_email" class="text-decoration-none mt-1"  href="#"><img class="btn btn-success p-4" src="https://img.icons8.com/material-outlined/24/ffffff/email.png"/>
+                <a id="person_email" class="text-decoration-none mt-1" href="#"><img class="btn btn-success p-4"
+                                                                                     src="https://img.icons8.com/material-outlined/24/ffffff/email.png"/>
                     <span class="text-dark">Email</span>
                 </a>
             </div>
@@ -59,25 +63,29 @@
 
             <div class="contact-links mx-4 row">
                 <a class="col-sm-6 col-md-3 text-decoration-none mt-1" href="#">
-                    <img class="btn btn-success p-4" src="https://img.icons8.com/material-outlined/24/ffffff/save-close.png"/>
+                    <img class="btn btn-success p-4"
+                         src="https://img.icons8.com/material-outlined/24/ffffff/save-close.png"/>
                     <span class="text-dark">Save</span>
                 </a>
-                <a class="col-sm-6 col-md-3 text-decoration-none mt-1" href="#"><img  class="btn btn-success p-4" src="https://img.icons8.com/material-outlined/24/ffffff/phone.png"/>
+                <a class="col-sm-6 col-md-3 text-decoration-none mt-1" href="#"><img class="btn btn-success p-4"
+                                                                                     src="https://img.icons8.com/material-outlined/24/ffffff/phone.png"/>
                     <span class="text-dark">Mobile</span>
                 </a>
-                <a class="col-sm-6 col-md-3 text-decoration-none mt-1"  href="#"><img class="btn btn-success p-4" src="https://img.icons8.com/material-outlined/24/ffffff/globe.png"/>
+                <a class="col-sm-6 col-md-3 text-decoration-none mt-1" href="#"><img class="btn btn-success p-4"
+                                                                                     src="https://img.icons8.com/material-outlined/24/ffffff/globe.png"/>
                     <span class="text-dark">Blog</span>
                 </a>
-                <a class="col-sm-6 col-md-3 text-decoration-none mt-1"  href="#"><img class="btn btn-success p-4" src="https://img.icons8.com/material-outlined/24/ffffff/email.png"/>
+                <a class="col-sm-6 col-md-3 text-decoration-none mt-1" href="#"><img class="btn btn-success p-4"
+                                                                                     src="https://img.icons8.com/material-outlined/24/ffffff/email.png"/>
                     <span class="text-dark">Email</span>
                 </a>
             </div>
 
             <div class="mt-5 px-3 pb-3 contact-form d-flex justify-content-center">
-                <form class="d-flex flex-column" action="" method="post">
+                <form id="contact-form" class="d-flex flex-column" action="" method="post">
                     <input class="form-control" type="text" name="name" placeholder="Enter your name">
                     <input class="form-control my-1" type="email" name="email" placeholder="Enter your email">
-                    <textarea class="form-control my-1" cols="40" rows="20" placeholder="Write your message"></textarea>
+                    <textarea name="msg" class="form-control my-1" cols="40" rows="20" placeholder="Write your message"></textarea>
                     <input class="my-1 btn btn-success" type="submit" value="Submit">
                 </form>
             </div>
@@ -87,9 +95,9 @@
 </div>
 
 <script>
-    function Person(first_name,lastname,title,company,description,phone,email,website){
+    function Person(first_name, lastname, title, company, description, phone, email, website) {
         this.name = first_name + ' ' + lastname;
-        this.title = title+' @ '+company.name;
+        this.title = title + ' @ ' + company.name;
         this.company = company;
         this.description = description;
         this.phone = phone;
@@ -97,7 +105,7 @@
         this.website = website;
     }
 
-    const company = {name:'Spider Tech',location:'3th, French baker St, 3rd floor, Talkha, Ad Daqahliyah, Egypt.'}
+    const company = {name: 'Spider Tech', location: '3th, French baker St, 3rd floor, Talkha, Ad Daqahliyah, Egypt.'}
     const person = new Person(
         'Mahmoud', //first name
         'Abas', //lastname
@@ -110,10 +118,11 @@
         'https://mmabas77.com'
     );
 
-    function setInnerHTML(attr_name, value){
+    function setInnerHTML(attr_name, value) {
         document.getElementById(attr_name).innerHTML = value;
     }
-    function setHref(attr_name, value){
+
+    function setHref(attr_name, value) {
         document.getElementById(attr_name).href = value;
     }
 
@@ -123,9 +132,30 @@
     setInnerHTML('person_company_address', person.company.location);
     setInnerHTML('person_description', person.description);
 
-    setHref('person_phone_number', 'tel:'+person.phone);
-    setHref('person_email', 'mailto:'+person.email);
+    setHref('person_phone_number', 'tel:' + person.phone);
+    setHref('person_email', 'mailto:' + person.email);
     setHref('person_website_link', person.website);
+
+    let contactForm = document.forms["contact-form"];
+    function validate_form(e) {
+        let isNameValid = contactForm["name"].value.length > 3;
+        let isEmailValid = contactForm["email"].value.length > 3;
+        let isMsgValid = contactForm["msg"].value.length > 10;
+        if(!isNameValid){
+            alert("Name is required and should be more than 3 characters");
+            return false;
+        }
+        if(!isEmailValid){
+            alert("Email is required and should be more than 3 characters");
+            return false;
+        }
+        if(!isMsgValid){
+            alert("Message is required and should be more than 10 characters");
+            return false;
+        }
+
+    }
+    contactForm.onsubmit = validate_form;
 
 </script>
 </body>
