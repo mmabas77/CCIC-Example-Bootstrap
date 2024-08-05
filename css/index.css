@@ -2,6 +2,10 @@ body {
   font-family: "Cairo", sans-serif !important;
   background-color: #009688;
 }
+.input-error{
+  color: red;
+  margin-left: 5px;
+}
 .main-data-sec{
   background-color: #DDDDDD;
 }

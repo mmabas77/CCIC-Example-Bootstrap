@@ -84,8 +84,14 @@
             <div class="mt-5 px-3 pb-3 contact-form d-flex justify-content-center">
                 <form id="contact-form" class="d-flex flex-column" action="" method="post">
                     <input class="form-control" type="text" name="name" placeholder="Enter your name">
+                    <span id="in-1" style="display: none" class="input-error">Name is required and should be more than 3 characters</span>
                     <input class="form-control my-1" type="email" name="email" placeholder="Enter your email">
+                    <span id="in-2" style="display: none" class="input-error">Email is required and should be more than 3 characters</span>
                     <textarea name="msg" class="form-control my-1" cols="40" rows="20" placeholder="Write your message"></textarea>
+                    <span id="in-3" style="display: none" class="input-error">Message is required and should be more than 10 characters</span>
+                    <div id="general-error" style="display: none" class="alert alert-danger">
+                        <strong>Error!</strong> You have errors in your form.
+                    </div>
                     <input class="my-1 btn btn-success" type="submit" value="Submit">
                 </form>
             </div>
@@ -141,19 +147,30 @@
         let isNameValid = contactForm["name"].value.length > 3;
         let isEmailValid = contactForm["email"].value.length > 3;
         let isMsgValid = contactForm["msg"].value.length > 10;
+        let isError = false;
         if(!isNameValid){
-            alert("Name is required and should be more than 3 characters");
-            return false;
+            document.getElementById("in-1").style.display = "inline";
+            isError = true;
+        }else{
+            document.getElementById("in-1").style.display = "none";
         }
         if(!isEmailValid){
-            alert("Email is required and should be more than 3 characters");
-            return false;
+            document.getElementById("in-2").style.display = "inline";
+            isError = true;
+        }else{
+            document.getElementById("in-2").style.display = "none";
         }
         if(!isMsgValid){
-            alert("Message is required and should be more than 10 characters");
-            return false;
+            document.getElementById("in-3").style.display = "inline";
+            isError = true;
+        }else{
+            document.getElementById("in-3").style.display = "none";
         }
 
+        if(isError) {
+            document.getElementById("general-error").style.display = "block";
+            return false;
+        }
     }
     contactForm.onsubmit = validate_form;
 
