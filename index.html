@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mahmoud Abas - Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--    Google cairo font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+
+    <!--    Bootstrap css-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!--    Our custom css-->
+    <link rel="stylesheet" media="screen" href="./css/index.css">
+    <link rel="stylesheet" media="screen and (min-width: 200px) and (max-width: 992px)" href="./css/992px.css">
+
+</head>
+<body class="">
+
+<div class="container mt-4">
+    <section class="head-sec text-end">
+        <a href="#"><img src="https://img.icons8.com/?size=100&id=98959&format=png&color=ffffff"/></a>
+        <a href="#"><img src="https://img.icons8.com/?size=100&id=7911&format=png&color=ffffff"/></a>
+    </section>
+    <div class="main-data-sec text-dark">
+        <section class="mx-4">
+            <img class="main-img img-fluid rounded" src="https://via.placeholder.com/200">
+            <h1 id="person_name" class="pt-5"></h1>
+            <h2 id="person_title"></h2>
+            <h3 id="person_company_name"></h3>
+            <p id="person_company_address"></p>
+        </section>
+        <section class="mx-4">
+            <p id="person_description"></p>
+        </section>
+        <section>
+            <div class="contact-links mx-4 d-flex flex-wrap align-content-center justify-content-between">
+            <a class="text-decoration-none mt-1" href="#">
+                    <img class="btn btn-success p-4" src="https://img.icons8.com/material-outlined/24/ffffff/save-close.png"/>
+                    <span class="text-dark">Save</span>
+                </a>
+                <a id="person_phone_number" class="text-decoration-none mt-1" href="#"><img  class="btn btn-success p-4" src="https://img.icons8.com/material-outlined/24/ffffff/phone.png"/>
+                    <span class="text-dark">Mobile</span>
+                </a>
+                <a id="person_website_link" class="text-decoration-none mt-1"  href="#"><img class="btn btn-success p-4" src="https://img.icons8.com/material-outlined/24/ffffff/globe.png"/>
+                    <span class="text-dark">Blog</span>
+                </a>
+                <a id="person_email" class="text-decoration-none mt-1"  href="#"><img class="btn btn-success p-4" src="https://img.icons8.com/material-outlined/24/ffffff/email.png"/>
+                    <span class="text-dark">Email</span>
+                </a>
+            </div>
+
+            <br><br><br><br><br>
+            <br><br><br><br><br>
+
+            <div class="contact-links mx-4 row">
+                <a class="col-sm-6 col-md-3 text-decoration-none mt-1" href="#">
+                    <img class="btn btn-success p-4" src="https://img.icons8.com/material-outlined/24/ffffff/save-close.png"/>
+                    <span class="text-dark">Save</span>
+                </a>
+                <a class="col-sm-6 col-md-3 text-decoration-none mt-1" href="#"><img  class="btn btn-success p-4" src="https://img.icons8.com/material-outlined/24/ffffff/phone.png"/>
+                    <span class="text-dark">Mobile</span>
+                </a>
+                <a class="col-sm-6 col-md-3 text-decoration-none mt-1"  href="#"><img class="btn btn-success p-4" src="https://img.icons8.com/material-outlined/24/ffffff/globe.png"/>
+                    <span class="text-dark">Blog</span>
+                </a>
+                <a class="col-sm-6 col-md-3 text-decoration-none mt-1"  href="#"><img class="btn btn-success p-4" src="https://img.icons8.com/material-outlined/24/ffffff/email.png"/>
+                    <span class="text-dark">Email</span>
+                </a>
+            </div>
+
+            <div class="mt-5 px-3 pb-3 contact-form d-flex justify-content-center">
+                <form class="d-flex flex-column" action="" method="post">
+                    <input class="form-control" type="text" name="name" placeholder="Enter your name">
+                    <input class="form-control my-1" type="email" name="email" placeholder="Enter your email">
+                    <textarea class="form-control my-1" cols="40" rows="20" placeholder="Write your message"></textarea>
+                    <input class="my-1 btn btn-success" type="submit" value="Submit">
+                </form>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+<script>
+    function Person(first_name,lastname,title,company,description,phone,email,website){
+        this.name = first_name + ' ' + lastname;
+        this.title = title+' @ '+company.name;
+        this.company = company;
+        this.description = description;
+        this.phone = phone;
+        this.email = email;
+        this.website = website;
+    }
+
+    const company = {name:'Spider Tech',location:'3th, French baker St, 3rd floor, Talkha, Ad Daqahliyah, Egypt.'}
+    const person = new Person(
+        'Mahmoud', //first name
+        'Abas', //lastname
+        'Ceo', //title
+        company,
+        // Description
+        'Senior Software Engineer | Tech Writer | Cybersecurity Enthusiast | Founder of Spider-Te8. Passionate about creating innovative software solutions and exploring the latest in technology. On my blog, I share insights into my software development journey, tech trends, and life experience.',
+        '01000000000',
+        'mmabas77@spider-te8.com',
+        'https://mmabas77.com'
+    );
+
+    function setInnerHTML(attr_name, value){
+        document.getElementById(attr_name).innerHTML = value;
+    }
+    function setHref(attr_name, value){
+        document.getElementById(attr_name).href = value;
+    }
+
+    setInnerHTML('person_name', person.name);
+    setInnerHTML('person_title', person.title);
+    setInnerHTML('person_company_name', person.company.name);
+    setInnerHTML('person_company_address', person.company.location);
+    setInnerHTML('person_description', person.description);
+
+    setHref('person_phone_number', 'tel:'+person.phone);
+    setHref('person_email', 'mailto:'+person.email);
+    setHref('person_website_link', person.website);
+
+</script>
+</body>
+</html>
